@@ -1,0 +1,13 @@
+Install boostrap
+npm install react-bootstrap bootstrap
+
+Install routes
+
+install react routes package
+
+Install axios
+
+npm install axios 
+
+Install for icons
+npm install react-icons
