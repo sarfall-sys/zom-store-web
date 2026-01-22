@@ -1,0 +1,32 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class RoleSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        \App\Models\Role::create([
+            'name' => 'Admin',
+            'description' => 'Description for Admin Role',
+        ]);
+        \App\Models\Role::create([
+            'name' => 'Employee',
+            'description' => 'Description for Employee Role',
+        ]);
+        \App\Models\Role::create([
+            'name' => 'Customer',
+            'description' => 'Regular customer with basic privileges',
+        ]);
+        \App\Models\Role::create([
+            'name' => 'Manager',
+            'description' => 'Department manager with elevated permissions',
+        ]);
+    }
+}
