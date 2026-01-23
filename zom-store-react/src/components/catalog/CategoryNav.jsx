@@ -32,7 +32,7 @@ function CategoryNav({ isMobileMenuOpen, setIsMobileMenuOpen }) {
     <>
       {/* DESKTOP NAVIGATION */}
       <div className="hidden mt-4 md:block">
-        <div className="flex justify-center space-x-8">
+        <div className="relative grid justify-center grid-cols-1 space-x-8 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
           {menu.map((category) => (
             <div
               key={category.id}
