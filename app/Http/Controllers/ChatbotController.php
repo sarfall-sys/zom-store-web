@@ -22,10 +22,10 @@ class ChatbotController extends Controller
         if ($request->has('message')) {
             $payload['message'] = $request->input('message');
         }
-        $response = Http::post('http://127.0.0.1:9000/chat', $payload);
+        $response = Http::post(config('services.chatbot.api_url'), $payload);
 
         if ($response->failed()) {
-            return response()->json(['message' => 'Failed to communicate with chatbot service', 'options' => [],500]);
+            return response()->json(['message' => 'Chatbot is currently unavailable', 'options' => [], 500]);
         }
 
         return $response->json();
