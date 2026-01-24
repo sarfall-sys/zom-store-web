@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatbotController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,3 +34,4 @@ Route::get('banners', [\App\Http\Controllers\Catalog\CatalogController::class, '
 Route::get('menu', [\App\Http\Controllers\Catalog\CatalogController::class, 'menu']);
 Route::get('filters', [\App\Http\Controllers\Catalog\CatalogController::class, 'getFilters']);
 
+Route::post('/chatbot', [ChatbotController::class, 'chat']);
