@@ -9,7 +9,7 @@ class ApiService {
             headers: {
                 'Content-Type': 'application/json',
             },
-            timeout: 6000,
+            timeout: 1200,
             withCredentials: true, // IMPORTANT for Sanctum cookies
 
         });

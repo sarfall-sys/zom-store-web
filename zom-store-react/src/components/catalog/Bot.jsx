@@ -6,9 +6,7 @@ function Bot({ isOpen, botToggle }) {
     const { message, options, loading, error, sendStateToBot } = useBot();
 
     const handleOption = (option) => {
-        // Handle option selection
-        console.log("Selected option:", option);
-        sendStateToBot(option.value);
+        sendStateToBot({ message: option.value });
     };
     return (
         <>
