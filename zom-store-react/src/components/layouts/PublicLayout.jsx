@@ -4,7 +4,13 @@ import { useState } from "react";
 import Header from "../catalog/Header";
 import Footer from "../catalog/Footer";
 import { CatalogProvider } from "../../context/CatalogContext";
+import Bot from "../catalog/Bot";
 function PublicLayout() {
+    const [openBot, setOpenBot] = useState(false);
+
+    const handleBotToggle = () => {
+        setOpenBot(!openBot);
+    }
     return (
         <div className="flex flex-col bg-primary-50">
             <Header />
@@ -14,6 +20,7 @@ function PublicLayout() {
                 {/*Set catalog if Brand or CatalogNav is triggered */}
             </main>
             <Footer />
+            <Bot isOpen={openBot} botToggle={handleBotToggle} />
         </div>
     );
 }

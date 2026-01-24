@@ -1,8 +1,8 @@
 import ApiService from "./ApiService";
 
 const botService = {
-    async sendState(state) {
-        return await ApiService.post(`/bot`, state);
+    async sendState({message: userMessage}) {
+        return await ApiService.post(`/chatbot`, { message: userMessage });
     }
 }
 

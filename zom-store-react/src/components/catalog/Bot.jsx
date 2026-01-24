@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import useBot from "../../hooks/useBot";
-function Bot() {
+import { BiMessageSquareDots } from "react-icons/bi";
+import { BiLoader } from "react-icons/bi";
+function Bot({ isOpen, botToggle }) {
     const { message, options, loading, error, sendStateToBot } = useBot();
-
-    const handleOpen = () => {
-        setOpen(!open);
-    };
 
     const handleOption = (option) => {
         // Handle option selection
@@ -15,10 +13,12 @@ function Bot() {
         <>
             <button
                 className="fixed p-4 text-white transition-colors rounded-full shadow-lg bg-petal-pink-400 bottom-4 right-4 hover:bg-petal-pink-500"
-                onClick={handleOpen}
-            ></button>
+                onClick={botToggle}
+            >
+                <BiMessageSquareDots size={24} />
+            </button>
 
-            {open && (
+            {isOpen && (
                 <div className="fixed flex flex-col w-64 p-4 border border-gray-300 rounded-lg shadow-lg bg-primary-400 bottom-20 right-4">
                     <div className="mb-4 font-bold text-primary-700">
                         Lavstyle Bot
@@ -35,6 +35,10 @@ function Bot() {
                                 {option.label}
                             </button>
                         ))}
+                        {loading && <p className="text-gray-500"><BiLoader className="inline-block mr-2 animate-spin" />Loading...</p>}
+                        {error && (
+                            <p className="text-red-600">Error: {error}</p>
+                        )}
                     </div>
                 </div>
             )}
