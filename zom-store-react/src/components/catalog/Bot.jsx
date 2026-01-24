@@ -7,6 +7,7 @@ function Bot({ isOpen, botToggle }) {
 
     const handleOption = (option) => {
         // Handle option selection
+        console.log("Selected option:", option);
         sendStateToBot(option.value);
     };
     return (
@@ -35,7 +36,7 @@ function Bot({ isOpen, botToggle }) {
                                 {option.label}
                             </button>
                         ))}
-                        {loading && <p className="text-gray-500"><BiLoader className="inline-block mr-2 animate-spin" />Loading...</p>}
+                        {loading && <p className="text-gray-500"><BiLoader className="inline-block mr-2 animate-spin" size={16} />Loading...</p>}
                         {error && (
                             <p className="text-red-600">Error: {error}</p>
                         )}

@@ -1,5 +1,5 @@
 
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import botService from "../services/botService";
 function useBot() {
 
@@ -13,10 +13,12 @@ function useBot() {
         setError(null);
         try {
             const response = await botService.sendState(state);
-            setMessage(response.data.message);
-            setOptions(response.data.options || []);
+            comnsole.log(response);
+
+            setMessage(response.message);
+            setOptions(response.options || []);
         } catch (err) {
-            setError("Failed to communicate with the bot.");
+            setError(err?.message || "Failed to communicate with the bot.");
         } finally {
             setLoading(false);
         }
