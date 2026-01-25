@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useBot from "../../hooks/useBot";
 import { BiMessageSquareDots } from "react-icons/bi";
 import { BiLoader } from "react-icons/bi";
 function Bot({ isOpen, botToggle }) {
+    
     const { message, options, loading, error, sendStateToBot } = useBot();
 
-    const handleOption = (option) => {
-        sendStateToBot({ message: option.value });
+    const handleOption = async (option) => {
+        console.log("Option selected:", option);
+        await sendStateToBot({ state: option });
     };
+
+    useEffect(() => {
+        if (isOpen) {
+            sendStateToBot({ message: "start" });
+        }
+    }, [isOpen]);
+
     return (
         <>
             <button
@@ -29,12 +38,20 @@ function Bot({ isOpen, botToggle }) {
                             <button
                                 key={option.label}
                                 className="block w-full px-4 py-2 mb-2 text-left text-white rounded bg-primary-600 hover:bg-primary-700"
-                                onClick={() => handleOption(option)}
+                                onClick={() => handleOption(option.next)}
                             >
                                 {option.label}
                             </button>
                         ))}
-                        {loading && <p className="text-gray-500"><BiLoader className="inline-block mr-2 animate-spin" size={16} />Loading...</p>}
+                        {loading && (
+                            <p className="text-gray-500">
+                                <BiLoader
+                                    className="inline-block mr-2 animate-spin"
+                                    size={16}
+                                />
+                                Loading...
+                            </p>
+                        )}
                         {error && (
                             <p className="text-red-600">Error: {error}</p>
                         )}

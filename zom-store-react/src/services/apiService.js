@@ -9,51 +9,20 @@ class ApiService {
             headers: {
                 'Content-Type': 'application/json',
             },
-            timeout: 1200,
-            withCredentials: true, // IMPORTANT for Sanctum cookies
+            timeout: 10000,
+            withCredentials: false, // IMPORTANT for Sanctum cookies
 
         });
-        this.csrfLoaded = false;
 
         this.setUpInterceptors();
     }
 
     //Sanctum csrf request
 
-    async ensureCsrfToken() {
-        if (this.csrfLoaded) return;
-
-        await this.client.get("/sanctum/csrf-cookie");
-        this.csrfLoaded = true;
-    }
 
     //Set up request and response interceptors
 
     setUpInterceptors() {
-        //Request interceptor for adding sanctum
-        this.client.interceptors.request.use(
-
-            async (config) => {
-
-                // Only do CSRF for protected CMS endpoints
-                const needsCsrf =
-                    config.url.startsWith('/management') ||
-                    config.url.startsWith('/admin') ||
-                    config.url.startsWith('/user') ||
-                    config.url.startsWith('/login') ||
-                    config.url.startsWith('/logout');
-                if (needsCsrf) {
-                    await this.ensureCsrfToken();
-                }
-
-                return config;
-            },
-            (error) => {
-                return Promise.reject(error);
-            }
-
-        );
-
         //Response interceptor for handling responses globally
 
         this.client.interceptors.response.use(

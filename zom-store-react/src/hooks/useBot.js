@@ -8,11 +8,11 @@ function useBot() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const sendStateToBot = async ({message}) => {
+    const sendStateToBot = async ({state, message}) => {
         setLoading(true);
         setError(null);
         try {
-            const response = await botService.sendState({message});
+            const response = await botService.sendState({state ,message});
             console.log(response);
 
             setMessage(response.message);
@@ -23,11 +23,6 @@ function useBot() {
             setLoading(false);
         }
     };
-
-    useEffect(() => {
-        // Initial bot message
-        sendStateToBot({message: "start"});
-    }, []);
 
     return {
         message,

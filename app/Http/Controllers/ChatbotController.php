@@ -25,10 +25,24 @@ class ChatbotController extends Controller
         }
         $response = Http::post(config('services.chatbot.api_url'), $payload);
 
+        Log::info('Chatbot response', ['response' => $response->body()]);
+
         if ($response->failed()) {
             return response()->json(['message' => 'Chatbot is currently unavailable', 'options' => [], 500]);
         }
 
-        return $response->json();
+        // Normalize chatbot response
+        $chatbotData = $response->json();
+        $normalizedResponse = [
+            'data' => [
+                'message' => $chatbotData['message'] ?? 'No response from chatbot.',
+                'options' => $chatbotData['options'] ?? [],
+            ],
+        ];
+
+        Log::info('Normalized chatbot response', $normalizedResponse);
+
+        return response()->json($normalizedResponse);
+
     }
 }
