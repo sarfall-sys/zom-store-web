@@ -117,19 +117,19 @@ function CategoryNav({ isMobileMenuOpen, setIsMobileMenuOpen }) {
                                                 to={`/zo/${category.slug}/sale`}
                                                 className="px-4 py-2 text-sm font-semibold transition-colors rounded-lg text-primary-500 hover:bg-primary-50"
                                             >
-                                                <MdDiscount className="inline mr-2 text-primary-700" /> Sale
+                                                <MdDiscount className="inline mr-2 text-accent-400" /> Sale
                                             </Link>
                                             <Link
                                                 to={`/zo/${category.slug}/new`}
                                                 className="px-4 py-2 text-sm font-semibold transition-colors rounded-lg text-primary-500 hover:bg-primary-50"
                                             >
-                                                <MdOutlineFiberNew className="inline mr-2 text-primary-700" /> New Arrivals
+                                                <MdOutlineFiberNew className="inline mr-2 text-accent-400" /> New Arrivals
                                             </Link>
                                             <Link
                                                 to={`/zo/${category.slug}/bestsellers`}
                                                 className="px-4 py-2 text-sm font-semibold transition-colors rounded-lg text-primary-500 hover:bg-primary-50"
                                             >
-                                                <FaStar className="inline mr-2 text-primary-700"  /> Bestsellers
+                                                <FaStar className="inline mr-2 text-accent-400"  /> Bestsellers
                                             </Link>
                                         </div>
                                     </div>

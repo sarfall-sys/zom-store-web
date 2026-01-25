@@ -10,7 +10,7 @@ function ProductCard({ product }) {
                     className="object-cover w-full h-48"
                 />
                 <div className="p-4">
-                    <h3 className="mb-2 text-lg font-semibold text-gray-700">
+                    <h3 className="mb-2 font-semibold text-gray-700 text-md">
                         {product.name}
                     </h3>
 
@@ -18,14 +18,14 @@ function ProductCard({ product }) {
                         <div className="price">
                             {product.is_on_sale ? (
                                 <div className="flex items-center gap-2">
-                                    <span className="text-lg font-bold text-gray-900">
+                                    <span className="font-bold text-gray-900 text-md">
                                         ${product.sale_price}
                                     </span>
                                     <span className="text-sm text-gray-500 line-through">
                                         ${product.price}
                                     </span>
                                     {product && (
-                                        <span className="px-2 py-1 text-xs rounded bg-primary-100 text-primary-700">
+                                        <span className="px-2 py-1 text-xs rounded-full bg-primary-100 text-primary-700">
                                             -
                                             {Math.round(
                                                 (1 -

@@ -40,7 +40,8 @@ export const theme = {
                 900: '#1c1917',
             },
 
-            "petal-pink": {
+            //petal-pink
+            accent: {
                 50: "#f8edf5",
                 100: "#f0dbea",
                 200: "#e1b7d6",

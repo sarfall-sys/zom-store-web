@@ -117,7 +117,7 @@ function ProductDetail() {
                     </div>
 
                     <div className="flex gap-3 mt-auto">
-                        <button className="flex-1 py-3 font-semibold text-white transition-colors rounded-xl bg-primary-600 hover:bg-primary-700">
+                        <button className="flex-1 py-3 font-semibold text-white transition-colors rounded-full bg-accent-400 hover:bg-accent-500">
                             Contact Seller
                         </button>
                     </div>

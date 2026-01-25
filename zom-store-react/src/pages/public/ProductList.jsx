@@ -100,7 +100,7 @@ function ProductList() {
     }
 
     return (
-        <div className="w-full p-6 bg-white rounded-lg shadow-sm">
+        <div className="w-full p-6 rounded-lg shadow-sm">
             <div className="relative mb-8">
                 <div className="absolute top-0 right-0 flex gap-2">
                     <SortPanel />

@@ -21,7 +21,7 @@ function SortPanel() {
         <div className="relative">
             {/*Open */}
             <button
-                className="flex items-center gap-2 px-4 py-2 mb-4 text-sm font-semibold text-white transition rounded-md bg-primary-500 hover:bg-primary-600"
+                className="flex items-center gap-2 px-4 py-2 mb-4 text-sm font-semibold text-white transition rounded-full bg-accent-400 hover:bg-accent-500"
                 onClick={() => {
                     setIsOpen(true);
                 }}

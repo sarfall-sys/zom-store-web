@@ -28,13 +28,13 @@ function Home() {
         : [];
 
     return (
-        <div className="text-center ">
+        <div className="space-y-12 text-center">
             {/* Hero Section */}
             <Banner />
 
             {/* New Arrivals - Only show if we have products */}
             {safeLatestProducts.length > 0 && (
-                <section className="py-8 m-2 bg-primary-400">
+                <section className="p-4 bg-primary-200">
                     <div className="m-4">
                         <h3 className="mb-6 text-3xl font-bold text-primary-800">
                             New Arrivals
@@ -53,7 +53,7 @@ function Home() {
 
             {/* Offers - Only show if we have products */}
             {safeSaleProducts.length > 0 && (
-                <section className="py-8 m-2 bg-red-100">
+                <section className="p-4 bg-red-100">
                     <div className="m-4">
                         <h3 className="mb-6 text-3xl font-bold text-red-700">
                             On Sale Now
