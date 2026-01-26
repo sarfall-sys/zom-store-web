@@ -34,13 +34,13 @@ function Brands() {
                         to={`/zo/${brand.slug ?? ""}`}
                         className="flex flex-col items-center group"
                     >
-                        <div className="w-40 overflow-hidden transition-shadow bg-white rounded-lg shadow-md hover:shadow-lg">
+                        <div className="w-40 overflow-hidden transition-shadow bg-white rounded-full shadow-md hover:shadow-lg">
                             <img
                                 src={brand.logo}
                                 alt={brand.name}
-                                className="object-cover w-full transition-transform duration-300 ease-in-out h-200 group-hover:scale-105"
+                                className="object-cover w-full transition-transform duration-300 ease-in-out h-15 group-hover:scale-105"
                             />
-                            <h3 className="items-center mt-3 text-lg font-semibold capitalize transition text-primary-800 group-hover:text-primary-600">
+                            <h3 className="items-center mt-2 text-sm font-semibold capitalize transition text-primary-800 group-hover:text-primary-600">
                                 {brand.name}
                             </h3>
                         </div>

@@ -33,9 +33,8 @@ function ProductDetail() {
 
     // Add to recent views when product is loaded/changed
     useEffect(() => {
-
         console.log("From details Viewed product:", viewedProduct);
-        
+
         if (viewedProduct) {
             addRecentProduct(viewedProduct);
         }
@@ -137,9 +136,14 @@ function ProductDetail() {
                     </div>
 
                     <div className="flex gap-3 mt-auto">
-                        <button className="flex-1 py-3 font-semibold text-white transition-colors rounded-full bg-accent-400 hover:bg-accent-500">
+                        <a
+                            href="https://wa.me/907338203"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 py-3 font-semibold text-white transition-colors rounded-full bg-accent-400 hover:bg-accent-500"
+                        >
                             Contact Seller
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
