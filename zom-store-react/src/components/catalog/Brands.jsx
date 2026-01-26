@@ -22,7 +22,7 @@ function Brands() {
             )}
 
             <div className="m-4">
-                <h1 className="mb-6 text-3xl font-bold text-primary-700">
+                <h1 className="mb-6 text-3xl font-bold text-gray-700">
                     Brands
                 </h1>
             </div>

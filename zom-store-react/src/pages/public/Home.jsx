@@ -5,16 +5,14 @@ import Brands from "../../components/catalog/Brands";
 import { useState } from "react";
 import { useProducts } from "../../hooks/useProducts";
 import ProductCard from "../../components/catalog/ProductCard";
-
+import ViewedItem from "../../components/catalog/ViewedItem";
 function Home() {
     const { saleProducts, latestProducts, loading, error } = useProducts();
 
-    // Handle loading
     if (loading) {
         return <div className="py-16 text-center">Loading...</div>;
     }
 
-    // Handle error
     if (error) {
         return (
             <div className="py-16 text-center text-red-500">Error: {error}</div>
@@ -36,7 +34,7 @@ function Home() {
             {safeLatestProducts.length > 0 && (
                 <section className="p-4 bg-primary-200">
                     <div className="m-4">
-                        <h3 className="mb-6 text-3xl font-bold text-primary-800">
+                        <h3 className="mb-6 text-3xl font-bold text-gray-700">
                             New Arrivals
                         </h3>
                         <p className="mb-8 text-lg text-gray-600">
@@ -55,7 +53,7 @@ function Home() {
             {safeSaleProducts.length > 0 && (
                 <section className="p-4 bg-red-100">
                     <div className="m-4">
-                        <h3 className="mb-6 text-3xl font-bold text-red-700">
+                        <h3 className="mb-6 text-3xl font-bold text-gray-700">
                             On Sale Now
                         </h3>
                         <p className="mb-8 text-lg text-red-600">
@@ -83,6 +81,13 @@ function Home() {
 
             {/**Brands */}
             <Brands />
+
+            {/* Recently Viewed Items */}
+            <section className="bg-accent-100">
+            <ViewedItem />
+
+            </section>
+
         </div>
     );
 }

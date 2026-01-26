@@ -4,6 +4,7 @@ import { BiLoader } from "react-icons/bi";
 import { FiAlertCircle } from "react-icons/fi";
 import { useProducts } from "../../hooks/useProducts";
 import { Link } from "react-router-dom";
+import { addRecentProduct } from "../../utils/recentViews";
 
 function ProductDetail() {
     const { slug } = useParams(); // Extract ID from URL
@@ -12,14 +13,33 @@ function ProductDetail() {
 
     const brand = product ? product.brand : "";
 
-    console.log("Product Detail - Slug:", slug);
-    console.log("Product Detail - Product:", product);
-    // Load product when component mounts or ID changes
+    const viewedProduct = product
+        ? {
+              id: product.id,
+              name: product.name,
+              image: product.image,
+              price: product.price,
+              sale_price: product.sale_price,
+              is_on_sale: product.is_on_sale,
+          }
+        : null;
+
+    // Load product when component mounts or slug changes
     useEffect(() => {
         if (slug) {
             loadProductDetail(slug);
         }
-    }, [slug]);
+    }, [slug, loadProductDetail]);
+
+    // Add to recent views when product is loaded/changed
+    useEffect(() => {
+
+        console.log("From details Viewed product:", viewedProduct);
+        
+        if (viewedProduct) {
+            addRecentProduct(viewedProduct);
+        }
+    }, [viewedProduct]);
 
     if (productsLoading) {
         return (
